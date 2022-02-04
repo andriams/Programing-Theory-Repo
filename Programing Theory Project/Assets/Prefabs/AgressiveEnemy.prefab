@@ -106,9 +106,9 @@ GameObject:
   - component: {fileID: 8194231860666979294}
   - component: {fileID: 8194231860666979288}
   - component: {fileID: 8194231860666979289}
-  - component: {fileID: 7811135275876814227}
+  - component: {fileID: 2269291512367422417}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: AgressiveEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &7811135275876814227
+--- !u!114 &2269291512367422417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,9 +169,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8194231860666979295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744c27c41959bc743a2e7b6b72a5709e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab48e61a0ccfd194fadfb8bbd2b7c7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbCollisionsBeforeDestroy: 3
 --- !u!1 &8194231861055963392
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ceca95c33c908754dbbc3dcb41d29115, type: 2}
+  - {fileID: 2100000, guid: 33298ad70534d8c48a580c9b27bb0247, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

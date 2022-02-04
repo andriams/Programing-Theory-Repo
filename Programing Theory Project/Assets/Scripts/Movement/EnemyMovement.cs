@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]private float _speed = 5;
-    [SerializeField]private float _rotationSpeed = 50;
-    private Transform _playerTransform;
-    private Rigidbody _enemyRb;
+    [SerializeField]protected float _speed = 5;
+    [SerializeField]protected float _rotationSpeed = 50;
+    protected Transform _playerTransform;
+    protected Rigidbody _enemyRb;
     
-    private void Awake()
+    protected void Awake()
     {
         _enemyRb = GetComponent<Rigidbody>();
         _playerTransform = GameObject.Find("Player").transform;
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         TurnTowardsPlayer();
         MoveForward();
@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         _enemyRb.MoveRotation(q);
     }
 
-    private void MoveForward()
+    protected virtual void MoveForward()
     {
         _enemyRb.velocity = transform.forward * _speed;
     }
