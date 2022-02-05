@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour
     private float _horizontalInput;
     private float _verticalInput;
     private float _orientationInput;
+    private GameManager _gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb = GetComponent<Rigidbody>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_gameManager.IsGameOver)
+        {
+            _playerRb.velocity = Vector3.zero;
+            return;
+        }
+
         Move();
     }
 

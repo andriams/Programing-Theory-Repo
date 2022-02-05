@@ -8,15 +8,23 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]protected float _rotationSpeed = 50;
     protected Transform _playerTransform;
     protected Rigidbody _enemyRb;
-    
+    private GameManager _gameManager;
+
     protected void Awake()
     {
         _enemyRb = GetComponent<Rigidbody>();
         _playerTransform = GameObject.Find("Player").transform;
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     protected void FixedUpdate()
     {
+        if (_gameManager.IsGameOver)
+        {
+            _enemyRb.velocity = Vector3.zero;
+            return;
+        }
+
         TurnTowardsPlayer();
         MoveForward();
     }

@@ -2,18 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class PlayerCollision : BaseCollision
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            HandleBulletCollision();
+            HandleTriggerEnter();
         }
     }
 
-    private void HandleBulletCollision()
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Shoot Game Over!!");
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            HandleCollisionEnter();
+        }
+    }
+
+    protected override void HandleTriggerEnter()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
+        Destroy(gameObject);
+    }
+
+    protected override void HandleCollisionEnter()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
+        Destroy(gameObject);
     }
 }
